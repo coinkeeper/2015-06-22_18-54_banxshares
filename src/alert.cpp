@@ -16,7 +16,7 @@ using namespace std;
 map<uint256, CAlert> mapAlerts;
 CCriticalSection cs_mapAlerts;
 
-static const char* pszMainKey = "04e588b9d4b8fbedd4e21471f2c2d55790c2b9cafffa30ad41386e03f1b9d43e694719dde56fb142de9f8d923ca8080c2e35a36de633b786352a682ef7ec1074f7";
+static const char* pszMainKey = "04a6ded25815b6be15dab6a0c80b6d3b6b6a1961ebf5e577d357111494dbe53fe738927bb3ce02511264df06adbed0e851222ef39b8850c78691e86bb822a344af";
 
 // TestNet alerts pubKey
 static const char* pszTestKey = "0471dc165db490094d35cde15b1f5d755fa6ad6f2b5ed0f340e3f17f57389c3c2af113a8cbcc885bde73305a553b5640c83021128008ddf882e856336269080496";
@@ -208,7 +208,7 @@ bool CAlert::ProcessAlert()
             if (Cancels(alert))
             {
                 printf("cancelling alert %d\n", alert.nID);
-                uiInterface.NotifyAlertChanged((*mi).first, CT_DELETED);
+//                uiInterface.NotifyAlertChanged((*mi).first, CT_DELETED);
                 mapAlerts.erase(mi++);
             }
             else if (!alert.IsInEffect())
